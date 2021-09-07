@@ -36,6 +36,8 @@ pipeline{
             always {
             junit '**/*.xml'
             step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'backend/spring-petclinic-rest/target/site/cobertura/coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+            step([$class: 'JacocoPublisher', autoUpdateHealth: false, autoUpdateStability: false, jacocoReportFile: 'backend/spring-petclinic-rest/target/site/jacoco/jacoco.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+
             }
         }
 }
