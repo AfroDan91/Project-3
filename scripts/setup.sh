@@ -10,3 +10,5 @@ npm uninstall -g angular-cli @angular/cli
 yes | npm cache clean
 yes | npm install -g @angular/cli@latest
 yes | npm install --save-dev @angular/cli@latest
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo az aks install-cli
