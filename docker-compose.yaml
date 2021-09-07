@@ -1,18 +1,8 @@
 version: '3.7'
 services:
-  back_end:
-    container_name: "back-end-service"
-    image: iivanov21/back-end-service:latest
-    build: backend
-    ports:
-    - target: 8081
-      published: 8081
-    environment:
-      DATABASE_URI: ${DATABASE_URI}
   front_end:
     container_name: "front-end-service"
     image: iivanov21/front-end-service:latest
-    build: frontend
-    depends_on: 
-      - "back_end"
+    build: frontend/spring-petclinic-angular
+    
  
