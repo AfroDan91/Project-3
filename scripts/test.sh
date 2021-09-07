@@ -1,2 +1,2 @@
 cd backend/spring-petclinic-rest/
-mvn test 
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" mvn clean package
