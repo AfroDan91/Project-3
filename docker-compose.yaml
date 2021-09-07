@@ -13,5 +13,6 @@ services:
     container_name: "front-end-service"
     image: iivanov21/front-end-service:latest
     build: front-end
-    depends-on: back-end-service
+    depends_on: 
+      - "back-end-service"
  
