@@ -12,3 +12,4 @@ docker-compose build --parallel
 docker login -u $DOCKER_ID_USR -p $DOCKER_ID_PSW
 
 docker-compose -f $WORKSPACE/docker-compose.yaml push
+
