@@ -1,3 +1,6 @@
+echo $AZURE_ID_USR
+echo $AZURE_ID
+echo $DATABASE_URI
 sudo apt install python3 python3-pip 
 bash $WORKSPACE/scripts/docker.sh
 bash $WORKSPACE/scripts/docker-compose.sh
