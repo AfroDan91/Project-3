@@ -1,5 +1,5 @@
-echo $AZ_ID_USR
-echo $AZ_ID
+echo $AZ_EMAIL
+echo $AZ_PASS
 echo $DATABASE_URI
 sudo apt install python3 python3-pip 
 bash $WORKSPACE/scripts/docker.sh
