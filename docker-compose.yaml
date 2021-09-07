@@ -3,7 +3,7 @@ services:
   back_end:
     container_name: "back-end-service"
     image: iivanov21/back-end-service:latest
-    build: back-end
+    build: backend
     ports:
     - target: 8081
       published: 8081
@@ -12,7 +12,7 @@ services:
   front_end:
     container_name: "front-end-service"
     image: iivanov21/front-end-service:latest
-    build: front-end
+    build: frontend
     depends_on: 
       - "back-end-service"
  
