@@ -3,6 +3,7 @@ pipeline{
         environment{
             DATABASE_URI= credentials("DATABASE_URI")
             DOCKER_ID=credentials("DOCKER_ID")
+            AZURE_ID=credentials("AZURE_ID")
         }
         stages{
             stage('Setup'){
