@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  front_end:
+    container_name: "front-end-service"
+    image: iivanov21/front-end-service:latest
+    build: frontend/spring-petclinic-angular
+    
+ 
