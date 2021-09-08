@@ -4,6 +4,6 @@ WORKDIR /build
 RUN mvn clean package
 
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+WORKDIR backend/spring-petclinic-rest
+COPY --from=build-stage /build/target/*.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
