@@ -4,9 +4,23 @@ services:
     container_name: "back-end-service"
     image: iivanov21/back-end-service:latest
     build: backend/spring-petclinic-rest
+
   front_end:
     container_name: "front-end-service"
     image: iivanov21/front-end-service:latest
     build: frontend/spring-petclinic-angular
-    
- 
+
+  #Nginx reverse proxy
+  pet-clinic-proxy:
+    container_name: pet-clinic-proxy
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+      - type: bind
+        source: ./nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+    depends_on:
+      - back_end
