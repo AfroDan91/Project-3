@@ -24,16 +24,5 @@ spec:
     ports:
     - containerPort: 9966
 
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: backend
-  labels:
-    app: backend      # needs to be the same as Service's selector
-spec:
-  containers:
-  - name: nginx
-    image: springcommunity/spring-petclinic-rest
-    ports:
+
     
