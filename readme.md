@@ -25,7 +25,7 @@ We selected Azure DevOps as our project planning tool of choice as it has good i
 With a start made and sticking to the Agile ways of working we "elected" a scrum master to lead and manage the organisation of the project tracking side of things. <br/>
 Our Kanban board near the end looked like this;<br/>
 <br/>
-![kanban]()
+![kanban](https://i.imgur.com/UV9EEef.png)
 <br/>
 <br/>
 Using our board we created 4 columns to categorize our work.<br/>
@@ -36,7 +36,10 @@ Using our board we created 4 columns to categorize our work.<br/>
 
 <br/>
 This board was our map through the sprint and enabled us to work quickly and efficiently throughout.<br/>
+We moved items from column to column as we worked our way through them, putting them back in the ToDo list if encountered an unanticipated blocker and moving on to something else.<br/>
+Using this board mean we never had a time where someone had nothing to do or a time where everyone was working on the same thing in error. 
 <br/>
+
 
 ## **Conventions** <br/>
 
@@ -64,14 +67,14 @@ When ever we  merged something into dev/main it was streamed on teams to the gro
 **Git Branch Naming** <br/>
 For branch naming we used; <br/>
 feature-branchName<br/>
-![featurebranchmodel]()<br/>
+![featurebranchmodel](https://i.imgur.com/uOhNKJB.png)<br/>
 Which enabled at a glance recognition of what was/ has been worked on while also not impeding the used of tabbing to auto complete lines for speed.<br/>
 <br/>
 
 **Git Commit Message** <br/>
 For adding commits to branches we used; <br/>
  "usersInitials: commit message"<br/>
-![commit]()<br/>
+![commit](https://i.imgur.com/5R4gGgk.png)<br/>
 Letting us quickly identify to who created the commit. This allows us to get the person responsible to look into it quickly should an issue arise.
 
 </details>
@@ -81,5 +84,5 @@ Letting us quickly identify to who created the commit. This allows us to get the
 
 ## **Spreading The Load**
 Once we had our scope and decided on how we wanted to do things it was time to divvy up the work. We split ourselves into 2 sub teams. One focusing on getting the application running and the other focusing on the pipeline.<br/>
-From there we each selected a task from the board and in scrum fashion quickly discussed what we selected, why and any blockers we anticipate coming up against. <br/>
+From there we each selected a task from the board and in scrum fashion quickly discussed what we selected, why and any blockers we anticipate coming up against.<br/>
 We did this part as a group to maximise our resources on resolving blockers, as we each have our own prior knowledge and expertise.
