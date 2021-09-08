@@ -1,1 +1,3 @@
-ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml
+
+az login --identity
+az aks get-credentials --resource-group azvm-project_group --name myAKSCluster

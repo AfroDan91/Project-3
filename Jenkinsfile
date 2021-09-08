@@ -3,6 +3,7 @@ pipeline{
         environment{
             DATABASE_URI= credentials("DATABASE_URI")
             DOCKER_ID=credentials("DOCKER_ID")
+            AZURE_ID=credentials("AZURE_ID")
         }
         stages{
             stage('Setup'){
@@ -33,8 +34,10 @@ pipeline{
         }
         post {
             always {
-            junit '**/junit.xml'
-            step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+            junit '**/*.xml'
+            step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'backend/spring-petclinic-rest/target/site/cobertura/coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+            step([$class: 'JacocoPublisher', autoUpdateHealth: false, autoUpdateStability: false, jacocoReportFile: 'backend/spring-petclinic-rest/target/site/jacoco/jacoco.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
+
             }
         }
 }

@@ -1,2 +1,2 @@
-echo "Test success"
-#python3 -m pytest --cov --cov-config=.coveragerc --cov-report term-missing --cov-report xml:coverage.xml --junitxml junit.xml
+cd backend/spring-petclinic-rest/
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" mvn clean package
