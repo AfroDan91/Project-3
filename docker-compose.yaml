@@ -1,5 +1,9 @@
 version: '3.7'
 services:
+  back_end:
+    container_name: "back-end-service"
+    image: iivanov21/back-end-service:latest
+    build: backend/spring-petclinic-rest
   front_end:
     container_name: "front-end-service"
     image: iivanov21/front-end-service:latest
