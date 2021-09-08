@@ -5,4 +5,3 @@ services:
     image: iivanov21/front-end-service:latest
     build: frontend/spring-petclinic-angular
     
- 
