@@ -1,9 +1,15 @@
 provider "azurerm" {
   features {}
 }
+
+provider "azurerm" {
+  alias           = "core"
+  subscription_id = "cecaf642-3d70-4be8-9083-e1ac9d0861fb"
+}
+
 ######################## RESOURCE GROUP 1 ########################
 resource "azurerm_resource_group" "example" {
-  name     = "spring-app"
+  name     = "spring-app1"
   location = "UK South"
 }
 ### CLUSTER ###
@@ -16,7 +22,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   default_node_pool {
     name       = "default"
     node_count = 1
-    vm_size    = "Standard_B1s"
+    vm_size    = "Standard_D2s_v3"
   }
 
   identity {
@@ -36,7 +42,7 @@ output "kube_config" {
 
 ######################## RESOURCE GROUP 2 ########################
 resource "azurerm_resource_group" "kube-con" {
-  name     = "MC_kspring-clusterp_myAKSCluster_uksouth"
+  name     = "MC_kspring-app1clusterp_myAKSCluster_uksouth"
   location = "UK South"
 }
 
@@ -55,38 +61,43 @@ resource "azurerm_subnet" "internal-uk" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-### scale set ###
-resource "azurerm_linux_virtual_machine_scale_set" "uk-vmss" {
-  name                = "uk-vmss"
-  resource_group_name = azurerm_resource_group.kube-con.name
-  location            = azurerm_virtual_network.uk.location
-  sku                 = "Standard_B1ms"
-  instances           = 1
-  admin_username      = "admin10"
+# ### scale set ###
+# resource "azurerm_linux_virtual_machine_scale_set" "uk-vmss" {
+#   name                = "uk-vmss"
+#   resource_group_name = azurerm_resource_group.kube-con.name
+#   location            = azurerm_virtual_network.uk.location
+#   sku                 = "Standard_B1ls"
+#   instances           = 1
+#   admin_username      = "admin10"
 
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
-  }
+#   admin_ssh_key {
+#     username   = "admin10"
+#     public_key = file("~/.ssh/id_rsa.pub")
+#   }
 
-  os_disk {
-    storage_account_type = "Standard_LRS"
-    caching              = "ReadWrite"
-  }
+#   source_image_reference {
+#     publisher = "Canonical"
+#     offer     = "UbuntuServer"
+#     sku       = "18.04-LTS"
+#     version   = "latest"
+#   }
 
-  network_interface {
-    name    = "uk-network"
-    primary = true
+#   os_disk {
+#     storage_account_type = "Standard_LRS"
+#     caching              = "ReadWrite"
+#   }
 
-    ip_configuration {
-      name      = "internal"
-      primary   = true
-      subnet_id = azurerm_subnet.internal-uk.id
-    }
-  }
-}
+#   network_interface {
+#     name    = "uk-network"
+#     primary = true
+
+#     ip_configuration {
+#       name      = "internal"
+#       primary   = true
+#       subnet_id = azurerm_subnet.internal-uk.id
+#     }
+#   }
+# }
 
 
 
