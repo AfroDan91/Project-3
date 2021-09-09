@@ -24,3 +24,4 @@ services:
         target: /etc/nginx/nginx.conf
     depends_on:
       - back_end
+
