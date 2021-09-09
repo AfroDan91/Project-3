@@ -7,13 +7,11 @@
   * [Conventions/Protocols](#conventions/protocols)
 * [The Work](#the-work)
   * [App](#App)
+    * [Database](#database)
   * [Pipeline](#pipeline)
     * [Jenkins](#jenkins)
-      * [Setup](#1.-setup)
-      * [Test](#2.-test)
-      * [Building and Pushing](#3.-building-and-pushing)
-      * [Terraform and Kubernetes](#4.-terraform-and-kubernetes)
-      * [Deploy](#5.-deploy)
+* [Future Improvements](#future-improvements)
+* [Authors](#authors)
 
 # **Introduction**
 Design specification:
@@ -58,6 +56,13 @@ Using this board mean we never had a time where someone had nothing to do or a t
 <br/>
 <br/>
 
+Before the team could take to the board to start doing tasks we had to sit and do a risk assessment for this project. Below is a snippet of the assessment with each risk outlined, who's responsibly, risk/impact, current and propsed mitigation and responce.
+
+![RiskAss](https://i.imgur.com/AkcgZ4Ml.png)
+
+Full risk assessment can be found [here](https://teams.microsoft.com/_#/xlsx/viewer/teams/https:~2F~2Fqalearning.sharepoint.com~2Fsites~2F21JunDevops1-TeamIo~2FShared%20Documents~2FTeam%20Io~2FRiskAss.xlsx?threadId=19:94835d1705124197a6d2f4e900c7f59c@thread.tacv2&baseUrl=https:~2F~2Fqalearning.sharepoint.com~2Fsites~2F21JunDevops1-TeamIo&fileId=f30f969a-1b0c-48ac-8c39-7745e3b7d7ed&ctx=files&rootContext=items_view&viewerAction=view)
+
+
 ## Conventions/Protocols <br/>
 To more accurately simulate a working environment we established several conventions and protocols to follow.<br/>
 Pre-agreed conventions are extremely important when working as part of a group as many people following their own conventions can quickly make a repo or Azure subscription extremely hard to navigate.<br/>
@@ -96,8 +101,6 @@ Letting us quickly identify to who created the commit. This allows us to get the
 
 </details>
 <br/>
-<br/>
-<br/>
 
 ## Spreading The Load
 Once we had our scope and decided on how we wanted to do things it was time to divvy up the work. We split ourselves into 2 sub teams. One focusing on getting the application running and the other focusing on the pipeline.<br/>
@@ -119,6 +122,34 @@ We split the teams up in this way to make use of some of the strengths identifie
 
 ## **App** <br/>
 
+Work on the application began with the two members of the app team sitting down and understanding the code as both have had prior java experience. Using the README for both front and back end we decided to use Docker containers to try spinning up the app. Noticing the backend was not able to communitcate with the frontend, we created a Docker file for the backend and configured an [NGINX Geteway Service](https://i.imgur.com/ORbTjmM.png) using the REST API as seen below: 
+<br/>
+<br/>
+![Gateway Path Diagram](https://i.imgur.com/DFDV2KKm.png)
+<br/>
+<br/>
+The NGINX Gateway was configured to take user requests on port 80 and redirect them to the ports that both the frontend and backend were using to receive requests, depending on the URL mapping slug format used for dividing the two sets of services. This allowed the two services to remain separate so that the backends database access is not at any point shared with the frontend, for security purposes.  
+
+## **Database**
+
+```
+# MySQL config start
+#----------------------------------------------------------------
+spring.datasource.url = jdbc:mysql://spring-petclinic-db.mysql.database.azure.com/petclinic?useUnicode=true
+spring.datasource.username=admin10@spring-petclinic-db
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.jpa.database=MYSQL
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=none
+#----------------------------------------------------------------
+# MySQL config end 
+```
+<br/>
+<br/>
+Using this predefined configuration for a MySQL database we tried switching from an integrated HSQL database to MySQL server hosted on AZURE. During this process we came across several different errors that spawned from authentication, however we managed to solve this just to be met with a lack of read and write permissions which were unsolvable within the timescale of this project.
+
+Lastly we created a Docker-Compose.yaml so that the whole project could be ran from a Jenkins VM for easier deployment onto multiple machines.
 
 ## **Pipeline** <br/>
 Work on the pipeline began with drawing up a a CI/CD pipeline diagram. This would serve as a blueprint for the pipeline and allow us to visualise the steps we need to implement.  <br/>
@@ -127,8 +158,25 @@ Our Pipeline looked like this; <br/>
 ![pipe](https://imgur.com/kG9eXl5.png)
 <br/>
 <br/>
-With the development section of the board being mainly in the app team's remit The pipeline team first focused on the CI server.
-Sticking to the "Don't repeat yourself" DevOps principle We were able to utilise a lot of the frameworks we had used in our previous projects to speed up development of the pipeline significantly. 
+With the development section of the board being mainly in the app team's remit The pipeline team first focused utilising our Azure resources efficiently.
+One of the constraints of this project is that we only have access to Azure trial accounts meaning, we were restricted on the number of CPUs we were able to provision in a given region and we had a certain amount of free credit available to use each. <br/>
+To maximise the usage of our spend and avoid running into the CPU limit, we spread our resources across all of our subscriptions; hosting the main Jenkins and kubernetes environment in Ivaylo's account, a development vm and kubernetes cluster on Daniel's subscription, a development database on Marius's subscription and a development build of the app using Docker on Earl's subscription. <br/>
+Spreading the load in this way gave us all responsibility for out part of the project, kept us within our spend and CPU constraints and gave us multiple failsafes should one of us encounter an account related issue. <br/>
+
+<details>
+  <summary>Cost Breakdown</summary>
+<br/>
+
+![cost1](https://imgur.com/LbM8JIK.png)
+![cost 2](https://imgur.com/6rTHrc1.png)
+![cost 3](https://imgur.com/sa23aol.png)
+![cost 4](https://imgur.com/9FzUS3a.png)
+
+</details>
+<br/>
+
+
+The total spend for the period of development was £20.98 which didn't effect our credit too bad but had the project been on a larger scale or up for a longer period of this this would have been a much bigger factor. <br/>
 
 ## **Jenkins**
 The first stage of designing the pipeline to avoid repetition and starting from scratch was to migrate another project which utilises Jenkins and includes fully functional pipeline with GCP. The scripts are designed in a way that easily allows you to adapt another web application which saved us time when planning out what stages the pipeline needs to go through.
@@ -150,4 +198,24 @@ Terraform is used to handle several things:
 #### **5. Deploy**
 Jenkins simply uses Kubernetes to create front-end and back-end services with designed yaml.
 <br>
--- maybe include pipeline
+
+# Future Improvements
+
+Here are a few ideas for the future of this project:
+<ul>
+<li>Integrate an external database with security credentials hidden within Jenkins</li>
+<li>Find a way in Azure that allows resource group sharing between subscription to subscription</li>
+<li>Use Negux as a private image registery to speed up pipeline build times</li>
+<li> For the presentation for this project, have a script that compiles and builds the app and pipeline for us.</li>
+</ul>
+
+# Authors
+
+[Daniel Wordie](https://github.com/AfroDan91)
+
+[Marius Saunders](https://github.com/MariusCSaunders)
+
+[Earl Gray](https://github.com/TheEarlOfGray)
+
+[Ivaylo Ivanov](https://github.com/IIvanov21)
+
