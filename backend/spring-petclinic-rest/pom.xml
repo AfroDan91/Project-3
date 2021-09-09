@@ -220,25 +220,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                <formats>
-                    <format>html</format>
-                    <format>xml</format>
-                </formats>
-                </configuration>
-                <executions>  
-                <execution>  
-                    <phase>package</phase>  
-                    <goals>  
-                        <goal>cobertura</goal>  
-                    </goals>  
-                </execution>  
-            </executions> 
-            </plugin>
-            <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>${docker.jib-maven-plugin.version}</version>

@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.7894736842105263" branch-rate="0.0" lines-covered="15" lines-valid="19" branches-covered="0" branches-valid="2" complexity="1.25" version="2.1.1" timestamp="1631204904323">
+	<sources>
+		<source>/home/admin10/Project-3/backend/spring-petclinic-rest/src/main/java</source>
+		<source>--source</source>
+		<source>/home/admin10/Project-3/backend/spring-petclinic-rest/target/generated-sources/annotations</source>
+	</sources>
+	<packages>
+		<package name="org.springframework.samples.petclinic.model" line-rate="0.3333333333333333" branch-rate="0.0" complexity="2.0">
+			<classes>
+				<class name="org.springframework.samples.petclinic.model.PetType" filename="org/springframework/samples/petclinic/model/PetType.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="27" hits="860" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="27" hits="860" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.model.Specialty" filename="org/springframework/samples/petclinic/model/Specialty.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="28" hits="216" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="216" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.model.Vets" filename="org/springframework/samples/petclinic/model/Vets.java" line-rate="0.0" branch-rate="0.0" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="31" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVetList" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="37" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="38" hits="0" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="38" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.springframework.samples.petclinic.repository.springdatajpa" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataPetRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataPetRepository.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataPetTypeRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataPetTypeRepository.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataSpecialtyRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataSpecialtyRepository.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataUserRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataUserRepository.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataVetRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataVetRepository.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.springframework.samples.petclinic.repository.springdatajpa.SpringDataVisitRepository" filename="org/springframework/samples/petclinic/repository/springdatajpa/SpringDataVisitRepository.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.springframework.samples.petclinic.security" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+			<classes>
+				<class name="org.springframework.samples.petclinic.security.Roles" filename="org/springframework/samples/petclinic/security/Roles.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="6" hits="10" branch="false"/>
+								<line number="8" hits="10" branch="false"/>
+								<line number="9" hits="10" branch="false"/>
+								<line number="10" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="6" hits="10" branch="false"/>
+						<line number="8" hits="10" branch="false"/>
+						<line number="9" hits="10" branch="false"/>
+						<line number="10" hits="10" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.springframework.samples.petclinic.util" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="org.springframework.samples.petclinic.util.ApplicationSwaggerConfig" filename="org/springframework/samples/petclinic/util/ApplicationSwaggerConfig.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="44" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="customDocket" signature="()Lspringfox/documentation/spring/web/plugins/Docket;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="48" hits="20" branch="false"/>
+								<line number="49" hits="10" branch="false"/>
+								<line number="50" hits="10" branch="false"/>
+								<line number="51" hits="10" branch="false"/>
+								<line number="52" hits="10" branch="false"/>
+								<line number="53" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="getApiInfo" signature="()Lspringfox/documentation/service/ApiInfo;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="57" hits="20" branch="false"/>
+								<line number="67" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="44" hits="10" branch="false"/>
+						<line number="48" hits="20" branch="false"/>
+						<line number="49" hits="10" branch="false"/>
+						<line number="50" hits="10" branch="false"/>
+						<line number="51" hits="10" branch="false"/>
+						<line number="52" hits="10" branch="false"/>
+						<line number="53" hits="10" branch="false"/>
+						<line number="57" hits="20" branch="false"/>
+						<line number="67" hits="10" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
