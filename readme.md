@@ -182,6 +182,9 @@ The total spend for the period of development was £20.98 which didn't effect ou
 The first stage of designing the pipeline to avoid repetition and starting from scratch was to migrate another project which utilises Jenkins and includes fully functional pipeline with GCP. The scripts are designed in a way that easily allows you to adapt another web application which saved us time when planning out what stages the pipeline needs to go through.
 When migrating the pipeline form GCP to Azure allowed us to understand how Azure access privelages work and provide access to Jenkins automatically manage things such as Kubernetes Cluster and setting up new VM through Ansible.
 So when new content gets pushed on the set .feature-{name} branch, Github will send a notification to Jenkins through a webhook which tells it to run the following pipeline:
+
+![Pipeline](https://i.imgur.com/CaYM6Kb.png)
+
 ### **1. Setup**
 Jenkins installs all the dependecies needed to run the development environment on the VM it uses. This means dependecies such as docker, ansible, terraform and ensures all packages are up to date on the VM.
 ### **2. Test**
