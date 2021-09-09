@@ -85,4 +85,30 @@ Letting us quickly identify to who created the commit. This allows us to get the
 ## **Spreading The Load**
 Once we had our scope and decided on how we wanted to do things it was time to divvy up the work. We split ourselves into 2 sub teams. One focusing on getting the application running and the other focusing on the pipeline.<br/>
 From there we each selected a task from the board and in scrum fashion quickly discussed what we selected, why and any blockers we anticipate coming up against.<br/>
-We did this part as a group to maximise our resources on resolving blockers, as we each have our own prior knowledge and expertise.
+We did this part as a group to maximise our resources on resolving blockers, as we each have our own prior knowledge and expertise.<br/>
+In our sub teams we then used a mixture of individual and peer programming to divide up and make the work easier. Sometimes calling in some of the members of the other group when a blocker was particularly challenging.
+<br/>
+<br/>
+<br/>
+
+# **The Work**
+Having the team split in two allowed us to work on both halves of the project simultaneously.<br/>
+The two teams consisted of <br/>
+Pipeline = Daniel and Ivaylo <br/>
+App = Earl and Marius <br/>
+We split the teams up in this way to make use of some of the strengths identified in the previous 2 projects and prior knowledge.
+<br/>
+<br/>
+
+## **App** <br/>
+
+
+## **Pipeline** <br/>
+Work on the pipeline began with drawing up a a CI/CD pipeline diagram. This would serve as a blueprint for the pipeline and allow us to visualise the steps we need to implement.  <br/>
+Our Pipeline looked like this; <br/>
+<br/>
+![pipe](https://imgur.com/kG9eXl5.png)
+<br/>
+<br/>
+With the development section of the board being mainly in the app team's remit The pipeline team first focused on the CI server.
+Sticking to the "Don't repeat yourself" DevOps principle We were able to utilise a lot of the frameworks we had used in our previous projects to speed up development of the pipeline significantly. 
