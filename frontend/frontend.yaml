@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: frontend
 spec:
-  type: LoadBalancer  # set the type of Service
+  type: ClusterIP  # set the type of Service
   selector:
     app: frontend     # referencing the Pod's label
   ports:
   - protocol: TCP
-    port: 80
+    port: 8080
     targetPort: 8080
 ---
 apiVersion: v1
