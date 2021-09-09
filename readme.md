@@ -1,3 +1,20 @@
+# Spring App - Pet Clinic 
+
+## Contents
+* [Introduction](#introduction)
+* [In the Beginning](#in-the-beginning)
+  * [Project Planning](#project-planning)
+  * [Conventions/Protocols](#conventions/protocols)
+* [The Work](#the-work)
+  * [App](#App)
+  * [Pipeline](#pipeline)
+    * [Jenkins](#jenkins)
+      * [Setup](#1.-setup)
+      * [Test](#2.-test)
+      * [Building and Pushing](#3.-building-and-pushing)
+      * [Terraform and Kubernetes](#4.-terraform-and-kubernetes)
+      * [Deploy](#5.-deploy)
+
 # **Introduction**
 Design specification:
 As a team, design and implement a solution for automating the development workflows and deployments of an unfamiliar application in a restricted timeframe.<br/>
@@ -19,7 +36,7 @@ Through this presentation we hope to demonstrate;
 # **In the Beginning**
 As we were given full autonomy on how we approached this task we first took to a teams call to begin planning our approach. <br/>
 
-## Project Planning <br/>
+## **Project Planning** <br/>
 We selected Azure DevOps as our project planning tool of choice as it has good integration with other Azure products. We also felt that using Azures project management offering would help provide us with more experience working within the Azure cloud environment. <br/>
 <br/>
 With a start made and sticking to the Agile ways of working we "elected" a scrum master to lead and manage the organisation of the project tracking side of things. <br/>
@@ -100,10 +117,10 @@ We split the teams up in this way to make use of some of the strengths identifie
 <br/>
 <br/>
 
-## App <br/>
+## **App** <br/>
 
 
-## Pipeline <br/>
+## **Pipeline** <br/>
 Work on the pipeline began with drawing up a a CI/CD pipeline diagram. This would serve as a blueprint for the pipeline and allow us to visualise the steps we need to implement.  <br/>
 Our Pipeline looked like this; <br/>
 <br/>
@@ -112,3 +129,25 @@ Our Pipeline looked like this; <br/>
 <br/>
 With the development section of the board being mainly in the app team's remit The pipeline team first focused on the CI server.
 Sticking to the "Don't repeat yourself" DevOps principle We were able to utilise a lot of the frameworks we had used in our previous projects to speed up development of the pipeline significantly. 
+
+## **Jenkins**
+The first stage of designing the pipeline to avoid repetition and starting from scratch was to migrate another project which utilises Jenkins and includes fully functional pipeline with GCP. The scripts are designed in a way that easily allows you to adapt another web application which saved us time when planning out what stages the pipeline needs to go through.
+When migrating the pipeline form GCP to Azure allowed us to understand how Azure access privelages work and provide access to Jenkins automatically manage things such as Kubernetes Cluster and setting up new VM through Ansible.
+So when new content gets pushed on the set .feature-{name} branch, Github will send a notification to Jenkins through a webhook which tells it to run the following pipeline:
+### **1. Setup**
+Jenkins installs all the dependecies needed to run the development environment on the VM it uses. This means dependecies such as docker, ansible, terraform and ensures all packages are up to date on the VM.
+### **2. Test**
+The test script will run maven tests to perform all the neccessary test. A coverage report is produced which can be viewed in the console output or .xml files which are used display the results with the help of Cobertura, JUnit and Jacoco plugins in Jenkins.
+### **3. Building and Pushing**
+Jenkins credential system is used to store login details for the Docker Hub and Databse. These credentials are used to login in DockerHub and with the help of docker-compose new images get built and pushed to the docker repository.
+### **4. Terraform and Kubernetes**
+Terraform is used to handle several things:
+   * Login into Azure to allow access.
+   * Create the relavent resource group.
+   * Create the kubernetes cluster.
+   * Create the virtual machine scaleset, network and subnet.
+   * Kubernetes will set the cluster as working space by getting the credentials.
+#### **5. Deploy**
+Jenkins simply uses Kubernetes to create front-end and back-end services with designed yaml.
+<br>
+-- maybe include pipeline
