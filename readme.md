@@ -58,7 +58,7 @@ Using this board mean we never had a time where someone had nothing to do or a t
 
 Before the team could take to the board to start doing tasks we had to sit and do a risk assessment for this project. Below is a snippet of the assessment with each risk outlined, who's responsibly, risk/impact, current and propsed mitigation and responce.
 
-![RiskAss](https://i.imgur.com/AkcgZ4Ml.png)
+![RiskAss](https://i.imgur.com/AkcgZ4Mh.png)
 
 Full risk assessment can be found [here](https://teams.microsoft.com/_#/xlsx/viewer/teams/https:~2F~2Fqalearning.sharepoint.com~2Fsites~2F21JunDevops1-TeamIo~2FShared%20Documents~2FTeam%20Io~2FRiskAss.xlsx?threadId=19:94835d1705124197a6d2f4e900c7f59c@thread.tacv2&baseUrl=https:~2F~2Fqalearning.sharepoint.com~2Fsites~2F21JunDevops1-TeamIo&fileId=f30f969a-1b0c-48ac-8c39-7745e3b7d7ed&ctx=files&rootContext=items_view&viewerAction=view)
 
