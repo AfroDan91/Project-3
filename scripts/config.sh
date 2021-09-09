@@ -1,3 +1,6 @@
 
 az login --identity
-az aks get-credentials --resource-group azvm-project_group --name myAKSCluster
+cd terraform
+terraform init
+terraform apply -auto-approve
+az aks get-credentials --resource-group spring-app1 --name spring-cluster
