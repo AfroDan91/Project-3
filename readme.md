@@ -19,7 +19,7 @@ Through this presentation we hope to demonstrate;
 # **In the Beginning**
 As we were given full autonomy on how we approached this task we first took to a teams call to begin planning our approach. <br/>
 
-## **Project Planning** <br/>
+## Project Planning <br/>
 We selected Azure DevOps as our project planning tool of choice as it has good integration with other Azure products. We also felt that using Azures project management offering would help provide us with more experience working within the Azure cloud environment. <br/>
 <br/>
 With a start made and sticking to the Agile ways of working we "elected" a scrum master to lead and manage the organisation of the project tracking side of things. <br/>
@@ -39,15 +39,15 @@ This board was our map through the sprint and enabled us to work quickly and eff
 We moved items from column to column as we worked our way through them, putting them back in the ToDo list if encountered an unanticipated blocker and moving on to something else.<br/>
 Using this board mean we never had a time where someone had nothing to do or a time where everyone was working on the same thing in error. 
 <br/>
+<br/>
 
-
-## **Conventions** <br/>
-
-To more accurately simulate a working environment we established several conventions to follow.<br/>
-Conventions are extremely important when working as part of a group as many people following their own conventions can quickly make a repo or Azure subscription extremely hard to navigate.<br/>
+## Conventions/Protocols <br/>
+To more accurately simulate a working environment we established several conventions and protocols to follow.<br/>
+Pre-agreed conventions are extremely important when working as part of a group as many people following their own conventions can quickly make a repo or Azure subscription extremely hard to navigate.<br/>
+Protocols play their part in keeping the project secure. In an effort to work as close to real life as possible we set up user access rights and restrictions on our accounts to enable safe collusion while still being able to provision resources on each others subscriptions. 
 <br/>
 <details>
-  <summary>Some of the conventions we used are located here</summary>
+  <summary>Some of the conventions/protocols we used are located here</summary>
   
 
 **Feature Branch Model** <br/>
@@ -82,7 +82,7 @@ Letting us quickly identify to who created the commit. This allows us to get the
 <br/>
 <br/>
 
-## **Spreading The Load**
+## Spreading The Load
 Once we had our scope and decided on how we wanted to do things it was time to divvy up the work. We split ourselves into 2 sub teams. One focusing on getting the application running and the other focusing on the pipeline.<br/>
 From there we each selected a task from the board and in scrum fashion quickly discussed what we selected, why and any blockers we anticipate coming up against.<br/>
 We did this part as a group to maximise our resources on resolving blockers, as we each have our own prior knowledge and expertise.<br/>
@@ -100,10 +100,10 @@ We split the teams up in this way to make use of some of the strengths identifie
 <br/>
 <br/>
 
-## **App** <br/>
+## App <br/>
 
 
-## **Pipeline** <br/>
+## Pipeline <br/>
 Work on the pipeline began with drawing up a a CI/CD pipeline diagram. This would serve as a blueprint for the pipeline and allow us to visualise the steps we need to implement.  <br/>
 Our Pipeline looked like this; <br/>
 <br/>
