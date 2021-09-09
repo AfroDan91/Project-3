@@ -1,5 +1,17 @@
 version: '3.7'
 services:
+
+  petclinic-db:
+    container_name: "petclinic-db"
+    image: mysql:latest
+    volumes:
+      - type: volume
+        source: petclinic-volume
+        target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      
+
   back_end:
     container_name: "back-end-service"
     image: iivanov21/back-end-service:latest
@@ -24,3 +36,6 @@ services:
         target: /etc/nginx/nginx.conf
     depends_on:
       - back_end
+
+volumes:
+  petclinic-volume:
