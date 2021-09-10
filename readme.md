@@ -206,10 +206,12 @@ Jenkins simply uses Kubernetes to create front-end and back-end services with de
 
 Here are a few ideas for the future of this project:
 <ul>
-<li>Integrate an external database with security credentials hidden within Jenkins</li>
-<li>Find a way in Azure that allows resource group sharing between subscription to subscription</li>
-<li>Use Negux as a private image registery to speed up pipeline build times</li>
-<li> For the presentation for this project, have a script that compiles and builds the app and pipeline for us.</li>
+ <li>Integrate an external database with security credentials hidden within Jenkins</li>
+ <li>Find a way in Azure that allows resource group sharing between subscription to subscription</li>
+ <li>Use Negux as a private image registery to speed up pipeline build times</li>
+ <li>Register a domain for the website instead of using the load balancer IP</li>
+ <li>THe app has a login feature, so implement a login page for each user</li>
+ <li>For the presentation for this project, have a script that compiles and builds the app and pipeline for us.</li>
 </ul>
 
 # Authors
